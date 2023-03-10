@@ -1,4 +1,4 @@
-import * as React from 'react'
+import { useState } from 'react'
 import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'
 import Toolbar from '@mui/material/Toolbar'
@@ -10,14 +10,13 @@ import Container from '@mui/material/Container'
 import Button from '@mui/material/Button'
 import MenuItem from '@mui/material/MenuItem'
 import Logo from '../../components/Logo'
-import './Header.scss'
+import DatePickerComponent from 'components/DatePicker'
+import dayjs, { Dayjs } from 'dayjs'
 
-const pages = ['Home', 'Blog', 'Videos', 'Favourite']
+const pages = ['Home', 'Blog', 'Videos', 'Favourite', 'Trainings']
 
 function ResponsiveAppBar() {
-    const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
-        null
-    )
+    const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null)
 
     const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorElNav(event.currentTarget)
@@ -25,6 +24,18 @@ function ResponsiveAppBar() {
 
     const handleCloseNavMenu = () => {
         setAnchorElNav(null)
+    }
+
+    const [isShown, setIsShown] = useState<boolean>(false)
+
+    const openDatePicker = () => {
+        setIsShown(!isShown)
+    }
+
+    const [value, setValue] = useState<Dayjs>(dayjs())
+
+    const changeValue = () => {
+        setValue(value)
     }
 
     return (
@@ -135,9 +146,8 @@ function ResponsiveAppBar() {
                         ))}
                     </Box>
 
-                    <Box sx={{ flexGrow: 0 }}>
+                    <Box sx={{ flexGrow: 0, position: 'relative' }}>
                         <Button
-                            className="button-schedule-workout"
                             sx={{
                                 my: 2,
                                 px: 3,
@@ -146,10 +156,23 @@ function ResponsiveAppBar() {
                                 display: 'block',
                                 backgroundColor: '#4154FF',
                                 borderRadius: '40px',
+                                zIndex: '10',
+
+                                '&:hover': {
+                                    backgroundColor: '#0019f7',
+                                },
+                            }}
+                            onClick={() => {
+                                openDatePicker()
+                                changeValue()
                             }}
                         >
                             Schedule a Workout
                         </Button>
+                        <DatePickerComponent
+                            isShown={isShown}
+                            openDatePicker={openDatePicker}
+                        ></DatePickerComponent>
                     </Box>
                 </Toolbar>
             </Container>
