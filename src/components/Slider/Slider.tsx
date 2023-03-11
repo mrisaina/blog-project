@@ -1,12 +1,12 @@
 import { Swiper, SwiperSlide } from 'swiper/react'
-import 'swiper/css'
-import 'swiper/css/pagination'
 import img1 from 'assets/slider/slider-img-1.jpeg'
 import img2 from 'assets/slider/slider-img-2.jpeg'
 import img3 from 'assets/slider/slider-img-3.jpeg'
-import 'components/Slider.scss'
 import { Pagination, Autoplay } from 'swiper'
 import SliderText from './SliderText'
+import 'swiper/css'
+import 'swiper/css/pagination'
+import 'components/Slider/Slider.scss'
 
 type Props = {}
 const Slider = (props: Props) => {

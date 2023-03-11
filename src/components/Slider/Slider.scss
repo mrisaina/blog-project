@@ -2,6 +2,13 @@
     background-color: #000;
     height: 2000px;
 }
+
+.wrapper {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .slider-container {
     padding-top: 10px;
     display: flex;
@@ -10,8 +17,7 @@
 }
 
 .slider {
-    width: 80%;
-    height: 500px;
+    height: 600px;
 
     img {
         width: 100%;
@@ -22,19 +28,24 @@
     }
 }
 
-.swiper-pagination-bullet {
-    background-color: #fff;
-    width: 12px;
-    height: 12px;
-    margin-bottom: 15px !important;
+.swiper-pagination-bullets {
+    margin-right: 40px;
+
+    .swiper-pagination-bullet {
+        background-color: #fff;
+        width: 12px;
+        height: 12px;
+        margin-bottom: 15px !important;
+    }
 }
 
 .slider-info-container {
+    margin-left: 200px;
     padding-top: 100px;
     position: absolute;
     color: #fff;
     font-family: 'Arial';
-    background: linear-gradient(to right, #000 75%, transparent);
+    background: linear-gradient(to right, #000 80%, transparent);
     height: 100%;
 
     .text-red {
@@ -59,6 +70,5 @@
         color: #d5d2da;
         -webkit-text-stroke: 1px #000;
     }
-
 
 }

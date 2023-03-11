@@ -1,14 +1,14 @@
-import Slider from 'components/Slider'
-import 'components/Slider.scss'
+import CardsList from 'components/CardsList'
+import Slider from 'components/Slider/Slider'
+import 'components/Slider/Slider.scss'
 
 type Props = {}
 const Main = (props: Props) => {
     return (
-        <div className="main">
-            <div className="slider-container">
-                <Slider />
-            </div>
-        </div>
+        <main className="main">
+            <Slider />
+            <CardsList />
+        </main>
     )
 }
 export default Main

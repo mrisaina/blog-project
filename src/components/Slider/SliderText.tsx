@@ -1,6 +1,6 @@
-import { ButtonBase } from '@mui/material'
+import { CardActions } from '@mui/material'
 import Button from '@mui/material/Button'
-import 'components/Slider.scss'
+import 'components/Slider/Slider.scss'
 
 type Props = {}
 const SliderText = (props: Props) => {
@@ -12,7 +12,7 @@ const SliderText = (props: Props) => {
                 Curabitur non nulla sit amet nisl tempus convallis <br />
                 quis ac lectus dolor sit amet.
             </p>
-            <ButtonBase>
+            <CardActions>
                 <Button
                     sx={{
                         my: 2,
@@ -52,7 +52,7 @@ const SliderText = (props: Props) => {
                 >
                     Open Blog
                 </Button>
-            </ButtonBase>
+            </CardActions>
         </div>
     )
 }
