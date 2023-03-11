@@ -26,14 +26,14 @@ const CardItem = ({ title, description, img }: Props) => {
                 },
             }}
         >
-            <div className="card-text-container">
+            <Box component="div" className="card-text-container">
                 <Box component="span" className="title">
                     {title}
                 </Box>
                 <Box component="span" className="description">
                     {description}
                 </Box>
-            </div>
+            </Box>
         </Button>
     )
 }
