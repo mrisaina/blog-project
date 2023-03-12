@@ -1,5 +1,4 @@
 import { Swiper, SwiperSlide } from 'swiper/react'
-import img1 from 'assets/slider/slider-img-1.jpeg'
 import img2 from 'assets/slider/slider-img-2.jpeg'
 import img3 from 'assets/slider/slider-img-3.jpeg'
 import { Pagination, Autoplay } from 'swiper'
