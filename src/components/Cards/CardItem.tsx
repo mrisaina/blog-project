@@ -1,6 +1,5 @@
 import { Button } from '@mui/material'
 import Box from '@mui/system/Box'
-import arrow from 'assets/arrow-right-white.svg'
 
 type Props = {
     title: string
