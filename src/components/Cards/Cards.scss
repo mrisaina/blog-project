@@ -27,6 +27,7 @@
     margin-top: 250px;
     padding-left: 20px;
     display: flex;
+    position: relative;
     flex-direction: column;
     text-align: left;
     font-family: 'Arial';
@@ -43,6 +44,16 @@
         color: #fff200;
         font-weight: 900;
         text-transform: none;
+    }
+
+    .arrow-img {
+        position: absolute;
+        margin-top: 15px;
+        margin-left: 80%;
+        width: 50px;
+        height: 60px;
+        background-image: url('../../assets/arrow-right-white.svg');
+        background-repeat: no-repeat;
     }
 }
 
