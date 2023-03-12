@@ -1,4 +1,4 @@
-import CardsList from 'components/CardsList'
+import CardsList from 'components/Cards/CardsList'
 import Slider from 'components/Slider/Slider'
 import 'components/Slider/Slider.scss'
 

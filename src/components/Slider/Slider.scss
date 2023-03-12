@@ -1,6 +1,6 @@
 .main {
     background-color: #000;
-    height: 2000px;
+    // height: 2000px;
 }
 
 .wrapper {
@@ -47,6 +47,7 @@
     font-family: 'Arial';
     background: linear-gradient(to right, #000 80%, transparent);
     height: 100%;
+    letter-spacing: -.05em;
 
     .text-red {
         margin: 0 0 30px 0;

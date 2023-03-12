@@ -1,17 +1,21 @@
-import { CardActions } from '@mui/material'
+import { Box, CardActions } from '@mui/material'
 import Button from '@mui/material/Button'
 import 'components/Slider/Slider.scss'
 
 type Props = {}
 const SliderText = (props: Props) => {
     return (
-        <div className="slider-info-container">
-            <p className="text-red">Certified fitness professional</p>
-            <p className="text-title">Take control of your health</p>
-            <p className="text-description">
+        <Box component="div" className="slider-info-container">
+            <Box component="p" className="text-red">
+                Certified fitness professional
+            </Box>
+            <Box component="p" className="text-title">
+                Take control of your health
+            </Box>
+            <Box component="p" className="text-description">
                 Curabitur non nulla sit amet nisl tempus convallis <br />
                 quis ac lectus dolor sit amet.
-            </p>
+            </Box>
             <CardActions>
                 <Button
                     sx={{
@@ -53,7 +57,7 @@ const SliderText = (props: Props) => {
                     Open Blog
                 </Button>
             </CardActions>
-        </div>
+        </Box>
     )
 }
 export default SliderText
