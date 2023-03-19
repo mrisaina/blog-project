@@ -1,15 +1,27 @@
 import Header from 'container/Header/Header'
 import CssBaseline from '@mui/material/CssBaseline'
-import Main from 'container/Main/Main'
+import Footer from 'container/Footer/Footer'
+import Home from 'pages/Home'
+import { Route, Routes } from 'react-router-dom'
+import Blog from 'pages/Blog'
 
 type Props = {}
-const App = (props: Props) => {
+function App(props: Props) {
     return (
-        <>
+        <div className="App">
             <CssBaseline />
             <Header />
-            <Main />
-        </>
+            {/* <Home /> */}
+            <div>
+                <Routes>
+                    <Route path="/" element={<Home />}></Route>
+                    <Route path="/blog" element={<Blog />}></Route>
+                    <Route path="/videos"></Route>
+                    <Route path="/favourites"></Route>
+                </Routes>
+            </div>
+            <Footer />
+        </div>
     )
 }
 export default App

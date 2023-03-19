@@ -1,11 +1,14 @@
 import { Box, CardActions } from '@mui/material'
 import Button from '@mui/material/Button'
 import 'components/Slider/Slider.scss'
+import { useNavigate } from 'react-router-dom'
 
 type Props = {}
 const SliderText = (props: Props) => {
+    const navigate = useNavigate()
+
     return (
-        <Box component="div" className="slider-info-container">
+        <Box className="slider-info-container">
             <Box component="p" className="text-red">
                 Certified fitness professional
             </Box>
@@ -34,6 +37,9 @@ const SliderText = (props: Props) => {
                             backgroundColor: '#0019f7',
                         },
                     }}
+                    onClick={() => {
+                        navigate('/videos')
+                    }}
                 >
                     Watch Video
                 </Button>
@@ -52,6 +58,9 @@ const SliderText = (props: Props) => {
                         '&:hover': {
                             backgroundColor: '#0019f7',
                         },
+                    }}
+                    onClick={() => {
+                        navigate('/blog')
                     }}
                 >
                     Open Blog

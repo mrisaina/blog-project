@@ -2,25 +2,20 @@ import { useState } from 'react'
 import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'
 import Toolbar from '@mui/material/Toolbar'
-import IconButton from '@mui/material/IconButton'
 import Typography from '@mui/material/Typography'
 import Menu from '@mui/material/Menu'
-import MenuIcon from '@mui/icons-material/Menu'
 import Container from '@mui/material/Container'
 import Button from '@mui/material/Button'
 import MenuItem from '@mui/material/MenuItem'
 import Logo from '../../components/Logo'
 import DatePickerComponent from 'components/DatePicker'
 import dayjs, { Dayjs } from 'dayjs'
+import { useNavigate } from 'react-router-dom'
 
-const pages = ['Home', 'Blog', 'Videos', 'Favourite', 'Trainings']
+const pages = ['Home', 'Blog', 'Videos', 'Favourites', 'Trainings']
 
 function ResponsiveAppBar() {
     const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null)
-
-    const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-        setAnchorElNav(event.currentTarget)
-    }
 
     const handleCloseNavMenu = () => {
         setAnchorElNav(null)
@@ -38,14 +33,12 @@ function ResponsiveAppBar() {
         setValue(value)
     }
 
-    const navigate = (link: string) => {
-        window.location.href = `pages/${link}.tsx`
-    }
+    const navigate = useNavigate()
 
     return (
         <AppBar
             position="static"
-            sx={{ backgroundColor: '#000000', pb: 2 }}
+            sx={{ backgroundColor: '#000000', pb: '5px' }}
             className="header-bar"
         >
             <Container maxWidth="xl">
@@ -77,16 +70,6 @@ function ResponsiveAppBar() {
                             display: { xs: 'flex', md: 'none' },
                         }}
                     >
-                        <IconButton
-                            size="large"
-                            aria-label="account of current user"
-                            aria-controls="menu-appbar"
-                            aria-haspopup="true"
-                            onClick={handleOpenNavMenu}
-                            color="inherit"
-                        >
-                            <MenuIcon />
-                        </IconButton>
                         <Menu
                             id="menu-appbar"
                             anchorEl={anchorElNav}
@@ -148,7 +131,9 @@ function ResponsiveAppBar() {
                                 key={page}
                                 onClick={function () {
                                     handleCloseNavMenu()
-                                    navigate(page)
+                                    page === 'Home'
+                                        ? navigate('/')
+                                        : navigate(page.toLowerCase())
                                 }}
                                 sx={{ my: 2, color: 'white', display: 'block' }}
                             >

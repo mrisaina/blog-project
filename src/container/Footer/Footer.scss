@@ -1,0 +1,107 @@
+@mixin btn-media-styles {
+    width: 25px;
+    height: 25px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    background-color: inherit;
+    border: none;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+@mixin center-text {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer-container {
+    display: flex;
+    background-color: #000;
+    padding-top: 100px;
+    font-size: 20px;
+    letter-spacing: -.05;
+    height: 500px;
+
+    .footer-logo-container {
+        display: flex;
+        width: calc(100%/ 2);
+        flex-direction: column;
+
+        .footer-logo {
+            display: flex;
+            color: #fff;
+            margin-left: auto;
+            margin-right: auto;
+
+            img {
+                height: fit-content;
+                margin: auto 0;
+            }
+
+        }
+
+        .footer-logo-text {
+            color: #9f9da1;
+            @include center-text();
+            width: 450px;
+        }
+    }
+
+    .footer-contact-container {
+        width: calc(100%/ 2);
+
+        .footer-contact-info-container {
+            color: #fff;
+            text-align: center;
+
+            .footer-contact-info-title {
+                text-transform: uppercase;
+            }
+
+            .footer-contact-info-address {
+                color: #9f9da1;
+                padding: 30px 0;
+            }
+        }
+    }
+}
+
+.social-media-container {
+    padding-top: 20px;
+    @include center-text();
+    gap: 15px;
+
+    .fb-btn {
+        background-image: url(../../assets/social-media/fb-logo.svg);
+        @include btn-media-styles()
+    }
+
+    .google-btn {
+        background-image: url(../../assets/social-media/google-logo.svg);
+        @include btn-media-styles()
+    }
+
+    .inst-btn {
+        background-image: url(../../assets/social-media/inst-logo.svg);
+        @include btn-media-styles()
+    }
+
+    .pinterest-btn {
+        background-image: url(../../assets/social-media/pinterest-logo.svg);
+        @include btn-media-styles()
+    }
+    
+    .twitter-btn {
+        background-image: url(../../assets/social-media/twitter-logo.svg);
+        @include btn-media-styles()
+    }
+
+    .youtube-btn {
+        background-image: url(../../assets/social-media/youtube-logo.svg);
+        @include btn-media-styles()
+    }
+}

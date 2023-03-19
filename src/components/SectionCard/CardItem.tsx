@@ -1,5 +1,6 @@
 import { Button } from '@mui/material'
 import Box from '@mui/system/Box'
+import { useNavigate } from 'react-router-dom'
 
 type Props = {
     title: string
@@ -7,6 +8,8 @@ type Props = {
     img: string
 }
 const CardItem = ({ title, description, img }: Props) => {
+    const navigate = useNavigate()
+
     return (
         <Button
             className="card"
@@ -26,14 +29,20 @@ const CardItem = ({ title, description, img }: Props) => {
                 },
             }}
         >
-            <Box component="div" className="card-text-container">
+            <Box className="card-text-container">
                 <Box component="span" className="title">
                     {title}
                 </Box>
                 <Box component="span" className="description">
                     {description}
                 </Box>
-                <Box component="div" className="arrow-img"></Box>
+                <Box
+                    component="div"
+                    className="arrow-img"
+                    onClick={() => {
+                        navigate('/blog')
+                    }}
+                ></Box>
             </Box>
         </Button>
     )

@@ -4,16 +4,16 @@ import card2 from 'assets/cards-menu/card-menu-3.jpg'
 import card3 from 'assets/cards-menu/card-menu-4.jpg'
 import avatar from 'assets/cards-menu/user-avatar.jpeg'
 import 'components/Slider/Slider.scss'
-import 'components/Cards/Cards.scss'
+import 'components/SectionCard/Cards.scss'
 import { Box } from '@mui/system'
 import { Typography } from '@mui/material'
 
 type Props = {}
-const CardsList = (props: Props) => {
+const HomeSectionsList = (props: Props) => {
     return (
-        <Box component="div" className="section-2">
-            <Box component="div" className="cards-list wrapper">
-                <Box component="div" className="card-box">
+        <Box className="section-2">
+            <Box className="cards-list wrapper">
+                <Box className="card-box">
                     <CardItem
                         title="Crossfit workout"
                         description="Push your limits"
@@ -21,7 +21,7 @@ const CardsList = (props: Props) => {
                     ></CardItem>
                 </Box>
 
-                <Box component="div" className="card-box">
+                <Box className="card-box">
                     <CardItem
                         title="Team training"
                         description="Find a partner"
@@ -29,7 +29,7 @@ const CardsList = (props: Props) => {
                     ></CardItem>
                 </Box>
 
-                <Box component="div" className="card-box">
+                <Box className="card-box">
                     <CardItem
                         title="New gym apparel"
                         description="Look good, feel good"
@@ -48,6 +48,7 @@ const CardsList = (props: Props) => {
                     margin: '100px auto 80px auto',
                     textAlign: 'center',
                     letterSpacing: '-.06em',
+                    textShadow: '2px 2px 2px #000',
                 }}
             >
                 "How you respond to the challenge in the second half will
@@ -55,7 +56,7 @@ const CardsList = (props: Props) => {
                 winner or a loser."
             </Typography>
 
-            <Box component="div" className="user">
+            <Box className="user">
                 <img src={avatar} alt="user-avatar" />
                 <Box component="span" className="userName">
                     Brad Johnson
@@ -71,4 +72,4 @@ const CardsList = (props: Props) => {
         </Box>
     )
 }
-export default CardsList
+export default HomeSectionsList
