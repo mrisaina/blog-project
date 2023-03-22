@@ -7,10 +7,10 @@ import Menu from '@mui/material/Menu'
 import Container from '@mui/material/Container'
 import Button from '@mui/material/Button'
 import MenuItem from '@mui/material/MenuItem'
-import Logo from '../../components/Logo'
-import DatePickerComponent from 'components/DatePicker'
+import Logo from '../../components/Logo/Logo'
 import dayjs, { Dayjs } from 'dayjs'
 import { useNavigate } from 'react-router-dom'
+import DatePickerComponent from 'components/DatePicker/DatePicker'
 
 const pages = ['Home', 'Blog', 'Videos', 'Favourites', 'Trainings']
 

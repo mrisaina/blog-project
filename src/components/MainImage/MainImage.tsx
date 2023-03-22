@@ -1,5 +1,5 @@
 import { Box } from '@mui/system'
-import 'components/MainImage.scss'
+import 'components/MainImage/MainImage.scss'
 
 type Props = {
     title: string

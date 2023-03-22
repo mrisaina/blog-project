@@ -1,5 +1,5 @@
 import { Box, CardActions, Typography } from '@mui/material'
-import Logo from 'components/Logo'
+import Logo from 'components/Logo/Logo'
 import 'container/Footer/Footer.scss'
 
 type Props = {}
