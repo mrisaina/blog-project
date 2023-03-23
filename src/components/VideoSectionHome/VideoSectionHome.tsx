@@ -1,12 +1,12 @@
 import { Button, Typography } from '@mui/material'
 import Box from '@mui/material/Box'
 import videoImage from 'assets/video-preview.jpeg'
-import 'components/VideoSection/VideoList.scss'
+import 'components/VideoSectionHome/VideoListHome.scss'
 import { useNavigate } from 'react-router-dom'
 import YoutubeEmbed from './YoutubeEmbed'
 
 type Props = {}
-const VideoSection = (props: Props) => {
+const VideoSectionHome = (props: Props) => {
     const navigate = useNavigate()
 
     return (
@@ -66,4 +66,4 @@ const VideoSection = (props: Props) => {
         </Box>
     )
 }
-export default VideoSection
+export default VideoSectionHome

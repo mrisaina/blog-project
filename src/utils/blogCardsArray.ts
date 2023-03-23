@@ -8,7 +8,7 @@ import card8 from 'assets/cards-menu/card-menu-9.jpeg'
 import card9 from 'assets/cards-menu/card-menu-10.jpeg'
 import card10 from 'assets/cards-menu/card-menu-11.jpeg'
 
-export type blogCard = {
+export type BlogCard = {
     id: number
     title: string
     section: string
@@ -16,7 +16,7 @@ export type blogCard = {
     img: string
 }
 
-const blogCardsArray: blogCard[] = [
+const blogCardsArray: BlogCard[] = [
     {
         id: 1,
         title: 'Best protein shake',
@@ -82,7 +82,7 @@ const blogCardsArray: blogCard[] = [
     },
 ]
 
-export const getCardsObject = (array: blogCard[]) =>
+export const getCardsObject = (array: BlogCard[]) =>
     array.reduce(
         (object, card) => ({
             ...object,

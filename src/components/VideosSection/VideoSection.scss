@@ -1,0 +1,23 @@
+.video-sections-container {
+    background: linear-gradient(to right, #4154FF 10%, #ff414b);
+    padding-bottom: 40px;
+}
+
+.section-title {
+    font-size: 36px;
+    font-weight: 700;
+    padding-top: 40px;
+}
+
+.section-videos {
+    height: 350px;
+    margin-top: 30px;
+
+    .videoSwiper {
+        height: 100%;
+
+        .swiper-pagination-bullets>span {
+            background-color: aqua;
+        }
+    }
+}
