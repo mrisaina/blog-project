@@ -26,18 +26,19 @@ const Filters = ({ activeFilter, setActiveFilter }: Props) => {
                 Choose category:
             </Typography>
             <Box className="filter-categories">
-                {filtersArray.map((cat) => {
+                {filtersArray.map(({ id, category }) => {
                     return (
                         <div
+                            key={id}
                             className={
-                                activeFilter.includes(cat)
+                                activeFilter.includes(category)
                                     ? 'category active'
                                     : 'category'
                             }
-                            onClick={() => filterActive(cat)}
+                            onClick={() => filterActive(category)}
                             style={{ userSelect: 'none' }}
                         >
-                            {cat}
+                            {category}
                         </div>
                     )
                 })}

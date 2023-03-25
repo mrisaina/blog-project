@@ -1,5 +1,5 @@
 import MainImage from 'components/MainImage/MainImage'
-import background from 'assets/join-img.jpeg'
+import background from 'assets/main-image/join-img.jpeg'
 import Box from '@mui/material/Box'
 import BlogCard from 'components/BlogCard/BlogCard'
 import 'components/BlogCard/BlogCard.scss'

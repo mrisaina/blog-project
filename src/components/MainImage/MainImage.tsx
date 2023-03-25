@@ -3,7 +3,7 @@ import 'components/MainImage/MainImage.scss'
 
 type Props = {
     title: string
-    description: string
+    description?: string
     img: string
 }
 const MainImage = ({ title, description, img }: Props) => {

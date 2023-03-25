@@ -28,10 +28,10 @@ const VideoSection = ({ sectionName }: Props) => {
                 >
                     {VideosArray.filter(
                         ({ section }) => section === sectionName
-                    ).map(({ embedId }) => {
+                    ).map(({ id, embedId }) => {
                         return (
                             <>
-                                <SwiperSlide>
+                                <SwiperSlide key={id}>
                                     <YoutubeEmbed embedId={embedId} />
                                 </SwiperSlide>
                             </>

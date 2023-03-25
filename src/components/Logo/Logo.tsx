@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography'
-import logo from 'assets/logo.png'
+import logo from 'assets/logo/logo.png'
 
 const Logo = () => {
     return (

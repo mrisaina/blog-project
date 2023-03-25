@@ -1,7 +1,7 @@
 $card-height: 450px;
 $img-card-height: 250px;
 
-.blog-cards-list{
+.blog-cards-list {
     display: flex;
     margin-top: 60px;
     margin-bottom: 60px;
@@ -68,8 +68,23 @@ $img-card-height: 250px;
 .tag-pink {
     background-color: #cd5b9f;
 }
-.arrow-img-container {
-    text-align: right;
+
+.card-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .favs-icon-container {
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+
+        img {
+            width: 30px;
+            height: 30px;
+            margin: 0;
+        }
+    }
 
     .btn-read-more {
         font-size: 16px;
@@ -77,7 +92,7 @@ $img-card-height: 250px;
         color: #000;
     }
 
-    img{
+    img {
         width: 30px;
         height: 30px;
         margin-left: 5px;

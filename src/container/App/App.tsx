@@ -5,6 +5,7 @@ import Home from 'pages/Home'
 import { Route, Routes } from 'react-router-dom'
 import Blog from 'pages/Blog'
 import Videos from 'pages/Videos'
+import Favourites from 'pages/Favourites'
 
 type Props = {}
 function App(props: Props) {
@@ -12,13 +13,12 @@ function App(props: Props) {
         <div className="App">
             <CssBaseline />
             <Header />
-            {/* <Home /> */}
             <div>
                 <Routes>
                     <Route path="/" element={<Home />}></Route>
                     <Route path="/blog" element={<Blog />}></Route>
                     <Route path="/videos" element={<Videos />}></Route>
-                    <Route path="/favourites"></Route>
+                    <Route path="/favourites" element={<Favourites />}></Route>
                 </Routes>
             </div>
             <Footer />
