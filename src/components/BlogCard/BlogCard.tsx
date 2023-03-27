@@ -4,14 +4,24 @@ import { useNavigate } from 'react-router-dom'
 import arrow from '../../assets/arrow-right/arrow-right-black.svg'
 import favsWhite from '../../assets/like/like-white.svg'
 import favsRed from '../../assets/like/like-red.svg'
-import { useState } from 'react'
+import { FavouritesList } from 'container/App/App'
 
 type Props = {
+    id: number
     title: string
     section: string
     img: string
+    addToFavourites: (id: number) => void
+    favouritesList: FavouritesList
 }
-const BlogCard = ({ title, section, img }: Props) => {
+const BlogCard = ({
+    id,
+    title,
+    section,
+    img,
+    addToFavourites,
+    favouritesList,
+}: Props) => {
     const setColor = (section: string) => {
         switch (section) {
             case 'Food':
@@ -25,9 +35,9 @@ const BlogCard = ({ title, section, img }: Props) => {
 
     const navigate = useNavigate()
 
-    const [isSelected, setSelection] = useState<boolean>(false)
-
-    const selectCard = () => setSelection(!isSelected)
+    const selectCard = (id: number) => {
+        addToFavourites(id)
+    }
 
     return (
         <Box className="card-container">
@@ -42,8 +52,12 @@ const BlogCard = ({ title, section, img }: Props) => {
                 <Box className="card-actions">
                     <Box className="favs-icon-container">
                         <img
-                            onClick={selectCard}
-                            src={isSelected ? favsRed : favsWhite}
+                            onClick={() => selectCard(id)}
+                            src={
+                                favouritesList.includes(id)
+                                    ? favsRed
+                                    : favsWhite
+                            }
                             alt="favs-icon"
                         />
                     </Box>

@@ -7,9 +7,14 @@ import 'components/Slider/Slider.scss'
 import blogCardsArray from 'utils/blogCardsArray'
 import Filters from 'components/Filters/Filters'
 import { useState } from 'react'
+import { FavouritesList } from 'container/App/App'
 
-type Props = {}
-const Blog = (props: Props) => {
+type Props = {
+    addToFavourites: (id: number) => void
+    favouritesList: FavouritesList
+}
+
+const Blog = ({ addToFavourites, favouritesList }: Props) => {
     const [activeFilter, setActiveFilter] = useState([''])
 
     return (
@@ -33,9 +38,12 @@ const Blog = (props: Props) => {
                               return (
                                   <div key={id}>
                                       <BlogCard
+                                          id={id}
                                           title={title}
                                           section={section}
                                           img={img}
+                                          addToFavourites={addToFavourites}
+                                          favouritesList={favouritesList}
                                       ></BlogCard>
                                   </div>
                               )
@@ -44,9 +52,12 @@ const Blog = (props: Props) => {
                           return (
                               <div key={id}>
                                   <BlogCard
+                                      id={id}
                                       title={title}
                                       section={section}
                                       img={img}
+                                      addToFavourites={addToFavourites}
+                                      favouritesList={favouritesList}
                                   ></BlogCard>
                               </div>
                           )

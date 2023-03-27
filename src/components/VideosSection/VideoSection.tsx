@@ -30,11 +30,9 @@ const VideoSection = ({ sectionName }: Props) => {
                         ({ section }) => section === sectionName
                     ).map(({ id, embedId }) => {
                         return (
-                            <>
-                                <SwiperSlide key={id}>
-                                    <YoutubeEmbed embedId={embedId} />
-                                </SwiperSlide>
-                            </>
+                            <SwiperSlide key={id}>
+                                <YoutubeEmbed embedId={embedId} />
+                            </SwiperSlide>
                         )
                     })}
                 </Swiper>
