@@ -7,6 +7,8 @@ import Blog from 'pages/Blog'
 import Videos from 'pages/Videos'
 import Favourites from 'pages/Favourites'
 import { useState } from 'react'
+import BlogCardExtended from 'pages/BlogCardExtended'
+import Trainings from 'pages/Trainings'
 
 type Props = {}
 
@@ -50,6 +52,11 @@ const App = (props: Props) => {
                             />
                         }
                     ></Route>
+                    <Route
+                        path="/blog/card:id"
+                        element={<BlogCardExtended />}
+                    ></Route>
+                    <Route path="/trainings" element={<Trainings />}></Route>
                 </Routes>
             </div>
             <Footer />

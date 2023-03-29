@@ -1,6 +1,6 @@
 import { Box, Button } from '@mui/material'
 import 'components/BlogCard/BlogCard.scss'
-import { useNavigate } from 'react-router-dom'
+import { generatePath, useNavigate } from 'react-router-dom'
 import arrow from '../../assets/arrow-right/arrow-right-black.svg'
 import favsWhite from '../../assets/like/like-white.svg'
 import favsRed from '../../assets/like/like-red.svg'
@@ -39,6 +39,10 @@ const BlogCard = ({
         addToFavourites(id)
     }
 
+    const handleProceed = () => {
+        id && navigate(generatePath('/products/:ids', { ids: `${id}` }))
+    }
+
     return (
         <Box className="card-container">
             <img src={img} alt="img-blog"></img>
@@ -61,12 +65,7 @@ const BlogCard = ({
                             alt="favs-icon"
                         />
                     </Box>
-                    <Button
-                        className="btn-read-more"
-                        onClick={() => {
-                            navigate('/blog/')
-                        }}
-                    >
+                    <Button className="btn-read-more" onClick={handleProceed}>
                         Read more
                         <img
                             src={arrow}
