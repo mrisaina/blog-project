@@ -39,7 +39,7 @@ const TrainingsList = ({ dateList, removeDate }: Props) => {
                     )
                 })
             ) : (
-                <Box className="empty-page wrapper">
+                <Box className="empty-page wrapper" sx={{ marginTop: '60px' }}>
                     <p className="empty-page-text">Page is empty</p>
                 </Box>
             )}
