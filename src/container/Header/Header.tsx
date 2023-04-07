@@ -14,7 +14,10 @@ import DatePickerComponent from 'components/DatePicker/DatePicker'
 
 const pages = ['Home', 'Blog', 'Videos', 'Favourites', 'Trainings']
 
-function ResponsiveAppBar() {
+function ResponsiveAppBar(
+    addNewDate: (e: any) => void,
+    setActiveFilter: React.Dispatch<React.SetStateAction<string[]>>
+) {
     const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null)
 
     const handleCloseNavMenu = () => {
@@ -129,11 +132,12 @@ function ResponsiveAppBar() {
                         {pages.map((page) => (
                             <Button
                                 key={page}
-                                onClick={function () {
+                                onClick={() => {
                                     handleCloseNavMenu()
                                     page === 'Home'
                                         ? navigate('/')
                                         : navigate(page.toLowerCase())
+                                    page !== 'Blog' && setActiveFilter([''])
                                 }}
                                 sx={{ my: 2, color: 'white', display: 'block' }}
                             >
@@ -168,6 +172,7 @@ function ResponsiveAppBar() {
                         <DatePickerComponent
                             isShown={isShown}
                             openDatePicker={openDatePicker}
+                            addNewDate={addNewDate}
                         ></DatePickerComponent>
                     </Box>
                 </Toolbar>
@@ -175,9 +180,12 @@ function ResponsiveAppBar() {
         </AppBar>
     )
 }
-type Props = {}
-const Header = (props: Props) => {
-    return ResponsiveAppBar()
+type Props = {
+    addNewDate: (e: any) => void
+    setActiveFilter: React.Dispatch<React.SetStateAction<string[]>>
+}
+const Header = ({ addNewDate, setActiveFilter }: Props) => {
+    return ResponsiveAppBar(addNewDate, setActiveFilter)
 }
 
 export default Header

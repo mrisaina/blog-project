@@ -1,18 +1,17 @@
 import MainImage from 'components/MainImage/MainImage'
-import background from 'assets/main-image/favourites-image.jpeg'
-import { Box } from '@mui/system'
+import background from 'assets/main-image/trainings-image.jpeg'
 import 'components/BlogCard/BlogCard.scss'
+import TrainingsList from 'components/TrainingsList/TrainingsList'
 
-type Props = {}
-const Trainings = (props: Props) => {
+type Props = {
+    dateList: Array<string>
+    removeDate: (date: string) => void
+}
+const Trainings = ({ dateList, removeDate }: Props) => {
     return (
         <>
             <MainImage title="Planned Trainings" img={background} />
-            <Box className="blog-cards-list wrapper">
-                <Box className="empty-page">
-                    <p className="empty-page-text">Page is empty</p>
-                </Box>
-            </Box>
+            <TrainingsList dateList={dateList} removeDate={removeDate} />
         </>
     )
 }

@@ -7,9 +7,13 @@ import 'components/Slider/Slider.scss'
 import 'components/SectionCard/Cards.scss'
 import { Box } from '@mui/system'
 import { Typography } from '@mui/material'
+import { filtersArray } from 'utils/filtersArray'
 
-type Props = {}
-const HomeSectionsList = (props: Props) => {
+type Props = {
+    setActiveFilter: React.Dispatch<React.SetStateAction<string[]>>
+}
+
+const HomeSectionsList = ({ setActiveFilter }: Props) => {
     return (
         <Box className="section-2">
             <Box className="cards-list wrapper">
@@ -18,6 +22,8 @@ const HomeSectionsList = (props: Props) => {
                         title="Crossfit workout"
                         description="Push your limits"
                         img={card1}
+                        filter={filtersArray[1].category}
+                        setActiveFilter={setActiveFilter}
                     ></CardItem>
                 </Box>
 
@@ -26,6 +32,8 @@ const HomeSectionsList = (props: Props) => {
                         title="Team training"
                         description="Find a partner"
                         img={card2}
+                        filter={filtersArray[2].category}
+                        setActiveFilter={setActiveFilter}
                     ></CardItem>
                 </Box>
 
@@ -34,6 +42,8 @@ const HomeSectionsList = (props: Props) => {
                         title="New gym apparel"
                         description="Look good, feel good"
                         img={card3}
+                        filter={filtersArray[0].category}
+                        setActiveFilter={setActiveFilter}
                     ></CardItem>
                 </Box>
             </Box>

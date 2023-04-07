@@ -32,7 +32,7 @@ const Favourites = ({ favouritesList, addToFavourites }: Props) => {
                         )
                     })
                 ) : (
-                    <Box className="empty-page">
+                    <Box className="empty-page wrapper">
                         <p className="empty-page-text">Page is empty</p>
                     </Box>
                 )}

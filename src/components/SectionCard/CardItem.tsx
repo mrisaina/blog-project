@@ -1,13 +1,22 @@
 import { Button } from '@mui/material'
 import Box from '@mui/system/Box'
+// import { SetStateAction } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 type Props = {
     title: string
     description: string
     img: string
+    filter: string
+    setActiveFilter: any
 }
-const CardItem = ({ title, description, img }: Props) => {
+const CardItem = ({
+    title,
+    description,
+    img,
+    filter,
+    setActiveFilter,
+}: Props) => {
     const navigate = useNavigate()
 
     return (
@@ -28,6 +37,10 @@ const CardItem = ({ title, description, img }: Props) => {
                     boxShadow: '0px 0px 20px #fff',
                 },
             }}
+            onClick={() => {
+                setActiveFilter(filter)
+                navigate('/blog')
+            }}
         >
             <Box className="card-text-container">
                 <Box component="span" className="title">
@@ -39,9 +52,9 @@ const CardItem = ({ title, description, img }: Props) => {
                 <Box
                     component="div"
                     className="arrow-img"
-                    onClick={() => {
-                        navigate('/blog')
-                    }}
+                    // onClick={() => {
+                    //     navigate('/blog')
+                    // }}
                 ></Box>
             </Box>
         </Button>

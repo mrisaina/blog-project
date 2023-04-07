@@ -7,38 +7,55 @@ import Blog from 'pages/Blog'
 import Videos from 'pages/Videos'
 import Favourites from 'pages/Favourites'
 import { useState } from 'react'
-import BlogCardExtended from 'pages/BlogCardExtended'
 import Trainings from 'pages/Trainings'
+import dayjs from 'dayjs'
+import blogCardsArray from 'utils/blogCardsArray'
+import BlogCardDetails from 'pages/BlogCardDetails'
 
 type Props = {}
 
 export type FavouritesList = Array<number>
 const App = (props: Props) => {
     const [favouritesList, setToFavourites] = useState<FavouritesList>([])
+    const [activeFilter, setActiveFilter] = useState([''])
 
     const addToFavourites = (id: number) => {
-        if (favouritesList.includes(id)) {
-            setToFavourites(favouritesList.filter((el) => el !== id))
-        } else {
-            setToFavourites([...favouritesList, id])
-        }
+        favouritesList.includes(id)
+            ? setToFavourites(favouritesList.filter((el) => el !== id))
+            : setToFavourites([...favouritesList, id])
     }
 
-    console.log(favouritesList)
+    const [dateList, setNewDate] = useState<Array<string>>([])
+
+    const addNewDate = (e: any) => {
+        const date = dayjs(e).format('DD MMM YYYY')
+        setNewDate((prevState) => [...prevState, date])
+    }
+
+    const removeDate = (date: string) => {
+        setNewDate((prevState) => {
+            return prevState.filter((el) => el !== date)
+        })
+    }
 
     return (
         <div className="App">
             <CssBaseline />
-            <Header />
+            <Header addNewDate={addNewDate} setActiveFilter={setActiveFilter} />
             <div>
                 <Routes>
-                    <Route path="/" element={<Home />}></Route>
+                    <Route
+                        path="/"
+                        element={<Home setActiveFilter={setActiveFilter} />}
+                    ></Route>
                     <Route
                         path="/blog"
                         element={
                             <Blog
                                 addToFavourites={addToFavourites}
                                 favouritesList={favouritesList}
+                                activeFilter={activeFilter}
+                                setActiveFilter={setActiveFilter}
                             />
                         }
                     ></Route>
@@ -53,10 +70,18 @@ const App = (props: Props) => {
                         }
                     ></Route>
                     <Route
-                        path="/blog/card:id"
-                        element={<BlogCardExtended />}
+                        path="/blog/:id"
+                        element={<BlogCardDetails data={blogCardsArray} />}
                     ></Route>
-                    <Route path="/trainings" element={<Trainings />}></Route>
+                    <Route
+                        path="/trainings"
+                        element={
+                            <Trainings
+                                dateList={dateList}
+                                removeDate={removeDate}
+                            />
+                        }
+                    ></Route>
                 </Routes>
             </div>
             <Footer />

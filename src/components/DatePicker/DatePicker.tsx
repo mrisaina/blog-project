@@ -1,23 +1,20 @@
 import { DatePicker } from '@mui/x-date-pickers'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
-import { useState } from 'react'
-import { omit } from 'lodash'
 
 type Props = {
     isShown: any
     openDatePicker: any
+    addNewDate: (e: any) => void
 }
 
 export let time: any[] = []
 
-const DatePickerComponent = ({ isShown, openDatePicker }: Props) => {
-    const [dateList, setNewDate] = useState<Array<string>>([''])
-
-    const addNewDate = (e: any) => {
-        setNewDate((prevState) => omit(prevState, e))
-    }
-
+const DatePickerComponent = ({
+    isShown,
+    openDatePicker,
+    addNewDate,
+}: Props) => {
     return (
         <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DatePicker
@@ -36,8 +33,7 @@ const DatePickerComponent = ({ isShown, openDatePicker }: Props) => {
                 }}
                 closeOnSelect={false}
                 onAccept={(e) => {
-                    if (e) addNewDate(e)
-                    console.log(time)
+                    e && addNewDate(e)
                 }}
                 onClose={openDatePicker}
             />

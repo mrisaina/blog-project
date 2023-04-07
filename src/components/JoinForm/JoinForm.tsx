@@ -1,14 +1,32 @@
 import { Button, Input, Modal, Typography } from '@mui/material'
 import { Box } from '@mui/system'
 import 'components/JoinForm/JoinForm.scss'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 
 type Props = {}
 const JoinForm = (props: Props) => {
     const [isShown, setIsShown] = useState<boolean>(false)
+    const [isValidEmail, setIsValid] = useState<boolean>(true)
+    const [emailValue, setEmail] = useState<string>('')
+    const ref = useRef<HTMLInputElement>(null)
 
     const openModal = () => {
         setIsShown(!isShown)
+    }
+
+    const checkIsValidEmail = (email: string) => {
+        const res = /\S+@\S+\.\S+/.test(email)
+        setIsValid(res)
+        res && openModal()
+    }
+
+    const handleChangeEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setEmail(e.target.value)
+    }
+
+    const onSubmit = () => {
+        ref.current!.value = ''
+        setEmail('')
     }
 
     return (
@@ -24,6 +42,8 @@ const JoinForm = (props: Props) => {
                     className="email-input"
                     placeholder="Enter your email"
                     type="email"
+                    inputRef={ref}
+                    onChange={handleChangeEmail}
                     disableUnderline
                 ></Input>
                 <Button
@@ -41,7 +61,10 @@ const JoinForm = (props: Props) => {
                             backgroundColor: '#0019f7',
                         },
                     }}
-                    onClick={openModal}
+                    onClick={() => {
+                        checkIsValidEmail(emailValue)
+                        onSubmit()
+                    }}
                 >
                     Subscribe
                 </Button>
@@ -77,13 +100,27 @@ const JoinForm = (props: Props) => {
                                 },
                             }}
                             className="btn-submit"
-                            onClick={openModal}
+                            onClick={() => {
+                                openModal()
+                            }}
                         >
                             Got it
                         </Button>
                     </Box>
                 </Modal>
             </form>
+            <Typography
+                component="h6"
+                variant="h6"
+                sx={{
+                    color: '#FF414B',
+                    display: `${isValidEmail ? 'none' : 'block'}`,
+                    position: 'absolute',
+                    paddingTop: '10px',
+                }}
+            >
+                Please, enter valid email
+            </Typography>
             <Box component="p" className="join-form-paragraph">
                 Curabitur non nulla sit amet nisl tempus convallis quis ac
                 lectus dolor sit amet, <br /> consectetur adipiscing elit sed

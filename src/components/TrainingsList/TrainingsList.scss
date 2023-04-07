@@ -1,0 +1,27 @@
+.trainings-list {
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(to right, #4154FF 10%, #ff414b);
+    min-height: 500px;
+
+    .training {
+        padding: 40px 80px;
+        display: flex;
+        justify-content: space-between;
+
+        &:not(:last-child) {
+            border-bottom: 2px solid #000;
+        }
+    }
+}
+
+.training-info {
+    .date-title {
+        font-size: 32px;
+    }
+
+    .date {
+        font-size: 24px;
+        padding-top: 10px;
+    }
+}

@@ -1,12 +1,17 @@
 import MainImage from 'components/MainImage/MainImage'
 import background from 'assets/main-image/videos-image-2.jpeg'
 import VideoSection from 'components/VideosSection/VideoSection'
+import { useEffect } from 'react'
 
 type Props = {}
 const Videos = (props: Props) => {
     const section1 = 'Fast Training'
     const section2 = 'Receipes'
     const section3 = 'Strength Training'
+
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+    }, [])
 
     return (
         <>

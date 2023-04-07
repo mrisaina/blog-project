@@ -40,7 +40,7 @@ const BlogCard = ({
     }
 
     const handleProceed = () => {
-        id && navigate(generatePath('/products/:ids', { ids: `${id}` }))
+        id && navigate(generatePath('/blog/:ids', { ids: `${id}` }))
     }
 
     return (

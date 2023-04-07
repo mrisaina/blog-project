@@ -4,12 +4,14 @@ import Slider from 'components/Slider/Slider'
 import 'components/Slider/Slider.scss'
 import VideoSection from 'components/VideoSectionHome/VideoSectionHome'
 
-type Props = {}
-const Home = (props: Props) => {
+type Props = {
+    setActiveFilter: React.Dispatch<React.SetStateAction<string[]>>
+}
+const Home = ({ setActiveFilter }: Props) => {
     return (
         <main className="main">
             <Slider />
-            <HomeSectionsList />
+            <HomeSectionsList setActiveFilter={setActiveFilter} />
             <VideoSection />
             <JoinForm />
         </main>
