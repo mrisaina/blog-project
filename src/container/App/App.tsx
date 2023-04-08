@@ -17,7 +17,7 @@ type Props = {}
 export type FavouritesList = Array<number>
 const App = (props: Props) => {
     const [favouritesList, setToFavourites] = useState<FavouritesList>([])
-    const [activeFilter, setActiveFilter] = useState([''])
+    const [activeFilter, setActiveFilter] = useState<Array<string>>([])
 
     const addToFavourites = (id: number) => {
         favouritesList.includes(id)

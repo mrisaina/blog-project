@@ -23,13 +23,12 @@ const Blog = ({
     setActiveFilter,
 }: Props) => {
     useEffect(() => {
-        const el = document.getElementById('main-blog')
-        el?.scrollTo({ top: 0, behavior: 'smooth' })
-    }, [activeFilter])
-
-    useEffect(() => {
-        window.scrollTo({ top: 0, behavior: 'smooth' })
-    }, [])
+        activeFilter.length
+            ? document
+                  .getElementById('main-blog')
+                  ?.scrollTo({ top: 0, behavior: 'smooth' })
+            : window.scrollTo({ top: 0, behavior: 'smooth' })
+    })
 
     return (
         <>

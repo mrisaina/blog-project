@@ -137,7 +137,7 @@ function ResponsiveAppBar(
                                     page === 'Home'
                                         ? navigate('/')
                                         : navigate(page.toLowerCase())
-                                    page !== 'Blog' && setActiveFilter([''])
+                                    page !== 'Blog' && setActiveFilter([])
                                 }}
                                 sx={{ my: 2, color: 'white', display: 'block' }}
                             >

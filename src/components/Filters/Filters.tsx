@@ -9,15 +9,9 @@ type Props = {
 }
 const Filters = ({ activeFilter, setActiveFilter }: Props) => {
     const filterActive = (cat: string) => {
-        activeFilter?.includes(cat) ? removeFilter(cat) : setActiveFilter([cat])
-    }
-
-    const removeFilter = (cat: string) => {
-        const index = activeFilter.findIndex(
-            (category: string) => category === cat
-        )
-        activeFilter.splice(index, 1)
-        setActiveFilter([])
+        activeFilter?.includes(cat)
+            ? setActiveFilter([''])
+            : setActiveFilter([cat])
     }
 
     return (

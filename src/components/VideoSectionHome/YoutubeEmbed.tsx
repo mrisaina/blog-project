@@ -13,7 +13,5 @@ const YoutubeEmbed = ({ embedId }: Props) => (
         />
     </div>
 )
-//   embedId: PropTypes.string.isRequired
-// };
 
 export default YoutubeEmbed
