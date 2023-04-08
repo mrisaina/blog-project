@@ -27,6 +27,10 @@ const Blog = ({
         el?.scrollTo({ top: 0, behavior: 'smooth' })
     }, [activeFilter])
 
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+    }, [])
+
     return (
         <>
             <MainImage
