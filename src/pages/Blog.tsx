@@ -26,9 +26,9 @@ const Blog = ({
         activeFilter.length
             ? document
                   .getElementById('main-blog')
-                  ?.scrollTo({ top: 0, behavior: 'smooth' })
+                  ?.scrollIntoView({ behavior: 'smooth' })
             : window.scrollTo({ top: 0, behavior: 'smooth' })
-    })
+    }, [activeFilter])
 
     return (
         <>
