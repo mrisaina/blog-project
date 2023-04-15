@@ -3,10 +3,8 @@ import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'
 import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
-import Menu from '@mui/material/Menu'
 import Container from '@mui/material/Container'
 import Button from '@mui/material/Button'
-import MenuItem from '@mui/material/MenuItem'
 import Logo from '../../components/Logo/Logo'
 import dayjs, { Dayjs } from 'dayjs'
 import { useNavigate } from 'react-router-dom'
@@ -18,12 +16,6 @@ function ResponsiveAppBar(
     addNewDate: (e: any) => void,
     setActiveFilter: React.Dispatch<React.SetStateAction<string[]>>
 ) {
-    const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null)
-
-    const handleCloseNavMenu = () => {
-        setAnchorElNav(null)
-    }
-
     const [isShown, setIsShown] = useState<boolean>(false)
 
     const openDatePicker = () => {
@@ -44,7 +36,7 @@ function ResponsiveAppBar(
             sx={{ backgroundColor: '#000000', pb: '5px' }}
             className="header-bar"
         >
-            <Container maxWidth="xl">
+            <Container>
                 <Toolbar disableGutters>
                     <Logo />
                     <Typography
@@ -55,7 +47,7 @@ function ResponsiveAppBar(
                         sx={{
                             mr: 2,
                             pt: 1,
-                            display: { xs: 'none', md: 'flex' },
+                            display: 'flex',
                             fontFamily: 'Arial',
                             fontWeight: 700,
                             fontSize: '26px',
@@ -66,74 +58,18 @@ function ResponsiveAppBar(
                     >
                         FITNESS
                     </Typography>
-
                     <Box
                         sx={{
                             flexGrow: 1,
-                            display: { xs: 'flex', md: 'none' },
-                        }}
-                    >
-                        <Menu
-                            id="menu-appbar"
-                            anchorEl={anchorElNav}
-                            anchorOrigin={{
-                                vertical: 'bottom',
-                                horizontal: 'left',
-                            }}
-                            keepMounted
-                            transformOrigin={{
-                                vertical: 'top',
-                                horizontal: 'left',
-                            }}
-                            open={Boolean(anchorElNav)}
-                            onClose={handleCloseNavMenu}
-                            sx={{
-                                display: { xs: 'block', md: 'none' },
-                            }}
-                        >
-                            {pages.map((page) => (
-                                <MenuItem
-                                    key={page}
-                                    onClick={handleCloseNavMenu}
-                                >
-                                    <Typography textAlign="center">
-                                        {page}
-                                    </Typography>
-                                </MenuItem>
-                            ))}
-                        </Menu>
-                    </Box>
-                    <Typography
-                        variant="h5"
-                        noWrap
-                        component="a"
-                        href=""
-                        sx={{
-                            mr: 2,
-                            display: { xs: 'flex', md: 'none' },
-                            flexGrow: 1,
-                            fontFamily: 'Arial',
-                            fontWeight: 700,
-                            letterSpacing: '.3rem',
-                            color: 'inherit',
-                            textDecoration: 'none',
-                        }}
-                    >
-                        FITNESS
-                    </Typography>
-                    <Box
-                        sx={{
-                            flexGrow: 1,
-                            display: { xs: 'none', md: 'flex' },
-                            justifyContent: { md: 'center' },
-                            gap: { md: '10px' },
+                            display: 'flex',
+                            justifyContent: 'center',
+                            gap: '10px',
                         }}
                     >
                         {pages.map((page) => (
                             <Button
                                 key={page}
                                 onClick={() => {
-                                    handleCloseNavMenu()
                                     page === 'Home'
                                         ? navigate('/')
                                         : navigate(page.toLowerCase())

@@ -15,8 +15,8 @@ type Props = {
 
 const HomeSectionsList = ({ setActiveFilter }: Props) => {
     return (
-        <Box className="section-2">
-            <Box className="cards-list wrapper">
+        <Box className="section-2" sx={{ minWidth: '1400px' }}>
+            <Box className="cards-list wrapper" sx={{ minWidth: '1400px' }}>
                 <Box className="card-box">
                     <CardItem
                         title="Crossfit workout"

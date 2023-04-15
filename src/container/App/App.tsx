@@ -39,7 +39,7 @@ const App = (props: Props) => {
     }
 
     return (
-        <div className="App">
+        <div className="App" style={{ minWidth: '1600px' }}>
             <CssBaseline />
             <Header addNewDate={addNewDate} setActiveFilter={setActiveFilter} />
             <div>
